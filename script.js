@@ -23,3 +23,18 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 
 }
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const serviceID = 'service_gszs29u';
+    const templateID = 'template_m3trzr7';
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        alert('Message sent successfully!');
+      }, (error) => {
+        alert('Failed to send message. Please try again.');
+        console.error('Error:', error);
+      });
+});
